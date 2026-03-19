@@ -4,6 +4,7 @@ import { Button, View } from "react-native";
 import { Card } from "@/components/card";
 import Page from "@/components/page";
 import { TabStrip } from "@/components/tab-strip";
+import { PressableScale } from "pressto";
 
 type PageType = {
   title: string;
@@ -203,19 +204,22 @@ export default function Home() {
                       title="Simple Tray routes"
                       description="Simple tray routes"
                     />
+                    <View className="bg-red-500 w-9 h-9" />
                     <View style={{ gap: 24, marginTop: 24 }}>
-                      <Button
-                        title="Linear tray routes"
+                      <PressableScale
                         onPress={() => router.navigate("/linear")}
-                      />
-                      <Button
-                        title="Nested tray routes"
+                      >
+                        <Button title="Linear tray routes" />
+                      </PressableScale>
+                      <PressableScale
                         onPress={() =>
                           router.navigate({
                             pathname: "/swerving",
                           })
                         }
-                      />
+                      >
+                        <Button title="Nested tray routes" />
+                      </PressableScale>
                     </View>
                   </View>
                 </View>
